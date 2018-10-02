@@ -58,5 +58,5 @@ while stack:
       print(code, codes[code])
       parents.append(code)
 
-with file('./icd9-cm-codes.json','w') as f:
+with open('./icd9-cm-codes.json','w') as f:
   f.write(json.dumps(codes, indent=4))
