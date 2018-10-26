@@ -36,9 +36,11 @@ while stack:
       codes[parent]['children'].append(code)
       stack.append((a1.attrib['href'], code, desc, depth+1))
     elif len(links) == 1:
-      code = links[0].text.replace(' ', '')
-      print(' '*(depth+1), code)
-      codes[parent]['children'].append(code)
+      minc, maxc = [int(c) for c in parent.split('-')]
+      for code in range(minc, maxc+1):
+        print(' '*(depth+1), code)
+        codes[parent]['children'].append(str(code))
+      break
     else:
       import pdb; pdb.set_trace()
       pass
